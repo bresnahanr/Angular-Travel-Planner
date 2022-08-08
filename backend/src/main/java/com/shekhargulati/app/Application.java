@@ -17,16 +17,16 @@ import java.lang.reflect.Method;
 @SpringBootApplication
 public class Application {
 
-    @Value("${rest.api.base.path}")
+/*    @Value("${rest.api.base.path}")
     private String restApiBasePath;
     @Value("${cors.allowed.origins}")
-    private String[] corsAllowedOrigins;
+    private String[] corsAllowedOrigins;*/
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
+/*    @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
@@ -36,9 +36,9 @@ public class Application {
                         .allowedOrigins(corsAllowedOrigins);
             }
         };
-    }
+    }*/
 
-    @Bean
+/*    @Bean
     public WebMvcRegistrations webMvcRegistrationsHandlerMapping() {
         Application application = this;
         return new WebMvcRegistrations() {
@@ -65,5 +65,5 @@ public class Application {
                 };
             }
         };
-    }
+    }*/
 }

@@ -1,0 +1,42 @@
+<div class ="container" style="width: 50%">
+  <div class = "card">
+    <h3 class="text-center"> Trip Planner</h3>
+    <br>
+    <h6 class="text-center">Select a Location from the dropdown for a description and the current weather forecast!</h6>
+    <div class = "card-body ">
+
+<!--      Location Selector     -->
+      <div style="margin-left: 50%;">
+        <select (change)="updateSelection($event.target.value)">
+          <option value="" selected disabled hidden>Choose here</option>
+          <option *ngFor="let name of names" [value]="name">
+            {{name}}
+          </option>
+        </select>
+      </div>
+      <br>
+
+<!--      Location Description    -->
+      <span class="info-block" style="float: left">
+        Description:
+        <div *ngIf="selection">
+          <p>{{selection.description}}
+        </div>
+      </span>
+
+<!--      Weather Forecast        -->
+      <span class="info-block" style="float: right">
+        Weather:
+        <div *ngIf="currentWeather">
+          <p>Temperature: {{currentWeather.current.temp_c}}°C / {{currentWeather.current.temp_f}}°F</p>
+          <p>Condition: {{currentWeather.current.condition.text}}</p>
+          <p>Wind: {{currentWeather.current.wind_kph}}KPH / {{currentWeather.current.wind_mph}}MPH
+            at {{currentWeather.current.wind_degree}}°{{currentWeather.current.wind_dir}} </p>
+          <p>Humidity: {{currentWeather.current.humidity}}</p>
+          <p>UV Rating: {{currentWeather.current.uv}}</p>
+        </div>
+      </span>
+
+    </div>
+  </div>
+</div>
